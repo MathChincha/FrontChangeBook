@@ -27,7 +27,7 @@ export default function OldBookTransaction({navigation}){
         console.log(transactionId);
         const token = await AsyncStorage.getItem('token');
         try {
-            await apiTransactions.put('/transactions',null,{
+            await apiTransactions.patch('/transactions',null,{
             headers: { Authorization: token },
             params:{ transactionId }
                 })
@@ -43,7 +43,7 @@ export default function OldBookTransaction({navigation}){
         console.log(transactionId);
         const token = await AsyncStorage.getItem('token');
         try {
-            await apiTransactions.put('/transactions/cancel',null,{
+            await apiTransactions.patch('/transactions/cancel',null,{
                 headers: { Authorization: token },
                 params:{ transactionId }
                     })
